@@ -73,16 +73,16 @@ public class SubscriptionService {
             throw new Exception("Already the best Subscription");
         }
 
-        else if(subscription.getSubscriptionType() == SubscriptionType.BASIC)
+        else if(subscription.getSubscriptionType() == SubscriptionType.PRO)
         {
             subscription.setSubscriptionType(SubscriptionType.ELITE);
             amtDiff = (1000 + (350*subscription.getNoOfScreensSubscribed())) - subscription.getTotalAmountPaid();
             subscription.setTotalAmountPaid(1000 + (350*subscription.getNoOfScreensSubscribed()));
             subscription.setStartSubscriptionDate(new Date());
         }
-        else if(subscription.getSubscriptionType() == SubscriptionType.PRO)
+        else if(subscription.getSubscriptionType() == SubscriptionType.BASIC)
         {
-            subscription.setSubscriptionType(SubscriptionType.ELITE);
+            subscription.setSubscriptionType(SubscriptionType.PRO);
             amtDiff = (800 + (250*subscription.getNoOfScreensSubscribed())) - subscription.getTotalAmountPaid();
             subscription.setTotalAmountPaid(800 + (250*subscription.getNoOfScreensSubscribed()));
             subscription.setStartSubscriptionDate(new Date());
